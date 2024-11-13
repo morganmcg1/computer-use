@@ -1,39 +1,3 @@
-# computer-use
-
-## Build docker to use weave
-
-```bash
-docker build -t computer-use -f computer-use-demo/Dockerfile .
-```
-
-## Setup
-
-Place .env file in `computer_use_demo` folder
-
-```bash
-ANTHROPIC_API_KEY=
-OPENAI_API_KEY=
-GOOGLE_API_KEY=
-WANDB_API_KEY=
-```
-
-## Run
-```bash
-# mount external folders instead for easier development
-docker run \
-    -e ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
-    -v "$(pwd)/computer_use_demo:/home/computeruse/computer_use_demo:rw" \
-    -v "$HOME/.anthropic:/home/computeruse/.anthropic:ro" \
-    -p 5900:5900 \
-    -p 8501:8501 \
-    -p 6080:6080 \
-    -p 8080:8080 \
-    -it computer-use
-    # -it ghcr.io/anthropics/anthropic-quickstarts:computer-use-demo-latest
-```
-
-------------------------------------------
-
 # Anthropic Computer Use Demo
 
 > [!CAUTION]
